@@ -1,0 +1,185 @@
+"use client";
+
+import { motion } from "framer-motion";
+import SectionReveal, { itemVariants } from "@/components/SectionReveal";
+import BrowserMockup from "@/components/BrowserMockup";
+
+const cardContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const caseStudies = [
+  {
+    name: "FortEdge Security",
+    description:
+      "A professional web presence for a Halifax-based security company, giving them credibility that matches the quality of their service.",
+    tags: ["Website", "Design", "Development"],
+    mockupVariant: "dark" as const,
+  },
+  {
+    name: "Abcare (Staffing Rebrand)",
+    description:
+      "A complete website overhaul for a company transitioning from home care to staffing. New brand, new site, new first impression.",
+    tags: ["Website", "Rebrand", "Development"],
+    mockupVariant: "light" as const,
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Working with Klero was seamless. Badr took the time to understand our business and delivered a site that our customers actually comment on.",
+    name: "[Name]",
+    company: "FortEdge Security",
+  },
+  {
+    quote:
+      "We needed someone who could handle the rebrand and the website together. Badr delivered exactly what we needed, on time and without the runaround.",
+    name: "[Name]",
+    company: "Abcare",
+  },
+];
+
+export default function Work() {
+  return (
+    <>
+      {/* Case Studies */}
+      <SectionReveal
+        id="work"
+        className="bg-white pt-12 pb-20 md:pt-16 md:pb-28 lg:pt-20 lg:pb-32"
+      >
+        <div className="mx-auto max-w-6xl px-6">
+          <motion.p
+            variants={itemVariants}
+            className="text-center text-sm font-semibold uppercase tracking-widest text-accent"
+          >
+            Work
+          </motion.p>
+          <motion.h2
+            variants={itemVariants}
+            className="mt-3 text-center text-3xl font-semibold text-dark md:text-4xl lg:text-5xl"
+          >
+            Our Work
+          </motion.h2>
+          <motion.p
+            variants={itemVariants}
+            className="mx-auto mt-4 max-w-2xl text-center text-lg leading-relaxed text-dark/70"
+          >
+            Real projects. Real results. Here&apos;s what we&apos;ve built.
+          </motion.p>
+
+          <motion.div
+            variants={cardContainerVariants}
+            className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2"
+          >
+            {caseStudies.map((study) => (
+              <motion.div
+                key={study.name}
+                variants={itemVariants}
+                whileHover={{
+                  y: -4,
+                  boxShadow: "0 8px 30px rgba(99,102,241,0.15)",
+                  transition: { duration: 0.15, ease: "easeOut" as const },
+                }}
+                className="border border-border bg-white"
+              >
+                <BrowserMockup
+                  companyName={study.name}
+                  variant={study.mockupVariant}
+                />
+                <div className="p-6 md:p-8">
+                  <h3 className="text-xl font-semibold text-dark">
+                    {study.name}
+                  </h3>
+                  <p className="mt-2 leading-relaxed text-dark/70">
+                    {study.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {study.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="border border-border bg-light-bg px-3 py-1 text-xs font-semibold text-primary"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <span
+                    className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent"
+                    aria-disabled="true"
+                  >
+                    View Case Study
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      aria-hidden="true"
+                      className="translate-y-px"
+                    >
+                      <path
+                        d="M6 3l5 5-5 5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="square"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </SectionReveal>
+
+      {/* Testimonials */}
+      <SectionReveal className="bg-light-bg py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <motion.h3
+            variants={itemVariants}
+            className="text-center text-2xl font-semibold text-dark md:text-3xl"
+          >
+            What Our Clients Say
+          </motion.h3>
+
+          <motion.div
+            variants={cardContainerVariants}
+            className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2"
+          >
+            {testimonials.map((testimonial) => (
+              <motion.div
+                key={testimonial.company}
+                variants={itemVariants}
+                className="relative border border-border bg-white p-8 md:p-10"
+              >
+                {/* Decorative quotation mark */}
+                <span
+                  className="pointer-events-none absolute top-4 left-4 z-0 text-8xl leading-none font-semibold text-accent/15 select-none md:top-6 md:left-6 md:text-9xl"
+                  aria-hidden="true"
+                >
+                  {"\u201C"}
+                </span>
+
+                <p className="relative z-10 text-lg leading-relaxed text-dark/80 italic">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </p>
+
+                <div className="relative z-10 mt-6 flex items-center gap-3">
+                  <span className="block h-px w-6 bg-accent" />
+                  <span className="text-sm font-semibold text-dark">
+                    {testimonial.name}, {testimonial.company}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </SectionReveal>
+    </>
+  );
+}
