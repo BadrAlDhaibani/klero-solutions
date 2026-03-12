@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(rm public/file.svg public/globe.svg public/next.svg public/vercel.svg public/window.svg)",
+      "Bash(cp \"logos/Full Lockup/svg/klero-logo-primary.svg\" public/klero-lockup-primary.svg)",
+      "Bash(cp \"logos/Full Lockup/svg/klero-logo-light.svg\" public/klero-lockup-light.svg)",
+      "Bash(cp \"logos/Logo Mark/svg/klero-logo-primary.svg\" public/klero-mark-primary.svg)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(npx next:*)",
+      "Bash(npm run:*)",
+      "Bash(curl -s http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__4ad46485._.css)",
+      "Bash(curl -s http://localhost:3000 -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl -s http://localhost:3001 -o /dev/null -w \" %{http_code}\")",
+      "Bash(curl -s http://localhost:3001)",
+      "Bash(curl -s http://localhost:3001/_next/static/chunks/%5Broot-of-the-server%5D__4ad46485._.css)",
+      "Bash(taskkill //PID 20356 //F)"
+    ]
+  }
+}

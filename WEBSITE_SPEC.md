@@ -135,7 +135,7 @@ Tagline (H1):
 > Your digital presence should say so.
 
 Sub-headline (body text, below tagline, slightly muted color):
-> We build websites and digital tools that show up on Google, bring in customers, and make the right first impression — even at 2am when you're asleep.
+> Websites and digital tools that bring in customers and make the right first impression — even while you sleep.
 
 Primary CTA button:
 > Let's Talk
