@@ -11,12 +11,12 @@ const albertSans = Albert_Sans({
 
 export const metadata: Metadata = {
   title:
-    "Klero Solutions — Custom Websites & Digital Tools for Small Businesses | Halifax, NS",
+    "Klero Solutions | Custom Websites & Digital Tools for Small Businesses | Halifax, NS",
   description:
     "Klero Solutions builds custom websites, booking systems, and digital tools for small businesses in Halifax and the Maritimes. Built to rank on Google, not from a template.",
   openGraph: {
     title:
-      "Klero Solutions — Custom Websites & Digital Tools for Small Businesses",
+      "Klero Solutions | Custom Websites & Digital Tools for Small Businesses",
     description:
       "Klero Solutions builds custom websites, booking systems, and digital tools for small businesses in Halifax and the Maritimes.",
     locale: "en_CA",

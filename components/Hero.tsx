@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import TypewriterText from "./TypewriterText";
-import MagneticButton from "./MagneticButton";
+import TypewriterText from "@/components/TypewriterText";
+import MagneticButton from "@/components/MagneticButton";
 
 const containerVariants = {
   hidden: {},
@@ -59,7 +59,7 @@ export default function Hero() {
           variants={itemVariants}
         >
           Websites and digital tools that bring in customers and make the
-          right first impression — even while you sleep.
+          right first impression, even while you sleep.
         </motion.p>
 
         {/* CTAs */}
