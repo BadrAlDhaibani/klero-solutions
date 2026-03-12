@@ -3,19 +3,19 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const NAV_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
+interface NavLink {
+  label: string;
+  href: string;
+}
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  navLinks: NavLink[];
+  ctaHref: string;
 }
 
-export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, onClose, navLinks, ctaHref }: MobileMenuProps) {
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
@@ -72,9 +72,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
             {/* Nav links */}
             <nav className="mt-8 flex flex-col gap-2">
-              {NAV_LINKS.map((link) => (
+              {navLinks.map((link) => (
                 <a
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
                   onClick={onClose}
                   className="px-4 py-3 text-lg font-semibold text-dark transition-colors hover:bg-light-bg hover:text-primary"
@@ -86,7 +86,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
             {/* CTA */}
             <a
-              href="#contact"
+              href={ctaHref}
               onClick={onClose}
               className="mt-auto bg-primary px-6 py-3 text-center text-lg font-semibold text-white transition-colors hover:bg-accent"
             >

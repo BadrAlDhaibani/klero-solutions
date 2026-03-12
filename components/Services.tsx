@@ -4,13 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import SectionReveal, { itemVariants } from "@/components/SectionReveal";
 import AccordionItem from "@/components/AccordionItem";
-import {
-  GlobeIcon,
-  CalendarIcon,
-  LayoutIcon,
-  MessageSparkleIcon,
-  ShieldCheckIcon,
-} from "@/components/ServiceIcons";
+import { getServiceIcon } from "@/components/ServiceIcons";
+import { services } from "@/data/services";
 
 const accordionContainerVariants = {
   hidden: {},
@@ -20,39 +15,6 @@ const accordionContainerVariants = {
     },
   },
 };
-
-const services = [
-  {
-    icon: GlobeIcon,
-    title: "Websites & Landing Pages",
-    description:
-      "A website that actually works for your business. Fast, mobile-friendly, built to show up on Google, and designed to turn visitors into customers. Not a template. Not a placeholder. A digital storefront that's open 24/7 and easy to find.",
-  },
-  {
-    icon: CalendarIcon,
-    title: "Booking & Scheduling Systems",
-    description:
-      "Stop emailing back and forth. We build booking systems that let your customers schedule themselves, send automatic reminders, and reduce no-shows. You focus on the work, not the admin.",
-  },
-  {
-    icon: LayoutIcon,
-    title: "Internal Tools & Dashboards",
-    description:
-      "Custom tools that replace the spreadsheets and manual processes slowing your team down. Track what matters, automate what doesn't, and get your time back.",
-  },
-  {
-    icon: MessageSparkleIcon,
-    title: "AI Chat & Automation",
-    description:
-      "An assistant on your website that knows your business: your services, your prices, your FAQs. It handles customer questions while you sleep. Smart, helpful, always on.",
-  },
-  {
-    icon: ShieldCheckIcon,
-    title: "Ongoing Support & Maintenance",
-    description:
-      "Your site doesn't end at launch. We keep it updated, secure, running fast, and showing up in search results. When you need changes, you have someone who picks up the phone.",
-  },
-];
 
 export default function Services() {
   const [expandedIndex, setExpandedIndex] = useState<number>(0);
@@ -93,13 +55,14 @@ export default function Services() {
         >
           {services.map((service, index) => (
             <AccordionItem
-              key={service.title}
-              icon={service.icon}
+              key={service.slug}
+              icon={getServiceIcon(service.iconKey)}
               title={service.title}
-              description={service.description}
+              description={service.shortDescription}
               isExpanded={expandedIndex === index}
               onToggle={() => handleToggle(index)}
               id={`service-${index}`}
+              href={`/services/${service.slug}`}
             />
           ))}
         </motion.div>

@@ -1,4 +1,4 @@
-interface IconProps {
+export interface IconProps {
   className?: string;
 }
 
@@ -103,4 +103,20 @@ export function ShieldCheckIcon({ className }: IconProps) {
       <path d="M9 12l2 2 4-4" />
     </svg>
   );
+}
+
+// --- Icon Lookup ---
+
+type IconComponent = React.ComponentType<IconProps>;
+
+const iconMap: Record<string, IconComponent> = {
+  globe: GlobeIcon,
+  calendar: CalendarIcon,
+  layout: LayoutIcon,
+  message: MessageSparkleIcon,
+  shield: ShieldCheckIcon,
+};
+
+export function getServiceIcon(key: string): IconComponent {
+  return iconMap[key] ?? GlobeIcon;
 }

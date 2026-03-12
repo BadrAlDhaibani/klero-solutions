@@ -1,15 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import MobileMenu from "./MobileMenu";
 
-const NAV_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+const BASE_NAV_LINKS = [
+  { label: "Services", hash: "services" },
+  { label: "Work", hash: "work" },
+  { label: "Process", hash: "process" },
+  { label: "About", hash: "about" },
+  { label: "Contact", hash: "contact" },
 ];
 
 const SECTION_IDS = ["hero", "services", "work", "process", "comparison", "about", "contact"];
@@ -17,18 +20,31 @@ const SECTION_IDS = ["hero", "services", "work", "process", "comparison", "about
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const activeSection = useActiveSection(SECTION_IDS);
+  const pathname = usePathname();
+  const isHomepage = pathname === "/";
+
+  const activeSection = useActiveSection(isHomepage ? SECTION_IDS : []);
+
+  const navLinks = useMemo(
+    () =>
+      BASE_NAV_LINKS.map((link) => ({
+        label: link.label,
+        href: isHomepage ? `#${link.hash}` : `/#${link.hash}`,
+      })),
+    [isHomepage]
+  );
+
+  const ctaHref = isHomepage ? "#contact" : "/#contact";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    handleScroll(); // check initial state
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isActive = (href: string) => {
-    const sectionId = href.replace("#", "");
-    return activeSection === sectionId;
+  const isActive = (hash: string) => {
+    return isHomepage && activeSection === hash;
   };
 
   return (
@@ -42,7 +58,7 @@ export default function Navbar() {
       >
         <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
           {/* Logo */}
-          <a href="#hero" className="shrink-0">
+          <Link href="/" className="shrink-0">
             <Image
               src="/klero-lockup-primary.svg"
               alt="Klero Solutions"
@@ -59,33 +75,36 @@ export default function Navbar() {
               className="h-9 w-9 md:hidden"
               priority
             />
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-8 md:flex">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="group relative py-2 text-sm font-semibold text-dark transition-colors hover:text-primary"
-              >
-                <span
-                  className={isActive(link.href) ? "text-primary" : ""}
+            {navLinks.map((link) => {
+              const hash = link.href.replace(/^\/?#/, "");
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="group relative py-2 text-sm font-semibold text-dark transition-colors hover:text-primary"
                 >
-                  {link.label}
-                </span>
-                {/* Animated underline */}
-                <span
-                  className={`absolute bottom-0 left-0 h-0.5 w-full origin-center bg-primary transition-transform duration-300 ${
-                    isActive(link.href)
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
-              </a>
-            ))}
+                  <span
+                    className={isActive(hash) ? "text-primary" : ""}
+                  >
+                    {link.label}
+                  </span>
+                  {/* Animated underline */}
+                  <span
+                    className={`absolute bottom-0 left-0 h-0.5 w-full origin-center bg-primary transition-transform duration-300 ${
+                      isActive(hash)
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </a>
+              );
+            })}
             <a
-              href="#contact"
+              href={ctaHref}
               className="bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-accent hover:shadow-lg"
             >
               Let&apos;s Talk
@@ -116,7 +135,12 @@ export default function Navbar() {
         </nav>
       </header>
 
-      <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileMenu
+        isOpen={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        navLinks={navLinks}
+        ctaHref={ctaHref}
+      />
     </>
   );
 }

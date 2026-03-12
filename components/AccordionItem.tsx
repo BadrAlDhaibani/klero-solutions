@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { itemVariants } from "@/components/SectionReveal";
 
@@ -27,6 +28,7 @@ interface AccordionItemProps {
   isExpanded: boolean;
   onToggle: () => void;
   id: string;
+  href?: string;
 }
 
 export default function AccordionItem({
@@ -36,6 +38,7 @@ export default function AccordionItem({
   isExpanded,
   onToggle,
   id,
+  href,
 }: AccordionItemProps) {
   return (
     <motion.div
@@ -81,7 +84,32 @@ export default function AccordionItem({
           >
             <div className="flex gap-4 px-6 pb-6 md:px-8 md:pb-8">
               <div className="w-7 shrink-0" />
-              <p className="leading-relaxed text-dark/70">{description}</p>
+              <div>
+                <p className="leading-relaxed text-dark/70">{description}</p>
+                {href && (
+                  <Link
+                    href={href}
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-colors hover:text-primary"
+                  >
+                    Learn more
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      aria-hidden="true"
+                      className="translate-y-px"
+                    >
+                      <path
+                        d="M6 3l5 5-5 5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="square"
+                      />
+                    </svg>
+                  </Link>
+                )}
+              </div>
             </div>
           </motion.div>
         )}

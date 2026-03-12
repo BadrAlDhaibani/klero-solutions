@@ -1,8 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import SectionReveal, { itemVariants } from "@/components/SectionReveal";
 import BrowserMockup from "@/components/BrowserMockup";
+import { caseStudies } from "@/data/caseStudies";
+import { testimonials } from "@/data/testimonials";
 
 const cardContainerVariants = {
   hidden: {},
@@ -12,38 +15,6 @@ const cardContainerVariants = {
     },
   },
 };
-
-const caseStudies = [
-  {
-    name: "FortEdge Security",
-    description:
-      "A professional web presence for a Halifax-based security company, giving them credibility that matches the quality of their service.",
-    tags: ["Website", "Design", "Development"],
-    mockupVariant: "dark" as const,
-  },
-  {
-    name: "Abcare (Staffing Rebrand)",
-    description:
-      "A complete website overhaul for a company transitioning from home care to staffing. New brand, new site, new first impression.",
-    tags: ["Website", "Rebrand", "Development"],
-    mockupVariant: "light" as const,
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Working with Klero was seamless. Badr took the time to understand our business and delivered a site that our customers actually comment on.",
-    name: "[Name]",
-    company: "FortEdge Security",
-  },
-  {
-    quote:
-      "We needed someone who could handle the rebrand and the website together. Badr delivered exactly what we needed, on time and without the runaround.",
-    name: "[Name]",
-    company: "Abcare",
-  },
-];
 
 export default function Work() {
   return (
@@ -79,7 +50,7 @@ export default function Work() {
           >
             {caseStudies.map((study) => (
               <motion.div
-                key={study.name}
+                key={study.slug}
                 variants={itemVariants}
                 whileHover={{
                   y: -4,
@@ -97,7 +68,7 @@ export default function Work() {
                     {study.name}
                   </h3>
                   <p className="mt-2 leading-relaxed text-dark/70">
-                    {study.description}
+                    {study.shortDescription}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {study.tags.map((tag) => (
@@ -109,9 +80,9 @@ export default function Work() {
                       </span>
                     ))}
                   </div>
-                  <span
-                    className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent"
-                    aria-disabled="true"
+                  <Link
+                    href={`/work/${study.slug}`}
+                    className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent transition-colors hover:text-primary"
                   >
                     View Case Study
                     <svg
@@ -129,7 +100,7 @@ export default function Work() {
                         strokeLinecap="square"
                       />
                     </svg>
-                  </span>
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -153,7 +124,7 @@ export default function Work() {
           >
             {testimonials.map((testimonial) => (
               <motion.div
-                key={testimonial.company}
+                key={testimonial.slug}
                 variants={itemVariants}
                 className="relative border border-border bg-white p-8 md:p-10"
               >
