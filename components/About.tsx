@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionReveal, { itemVariants } from "@/components/SectionReveal";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function About() {
   return (
@@ -10,18 +11,11 @@ export default function About() {
       className="bg-white pt-12 pb-20 md:pt-16 md:pb-28 lg:pt-20 lg:pb-32"
     >
       <div className="mx-auto max-w-5xl px-6">
-        <motion.p
-          variants={itemVariants}
-          className="text-center text-sm font-semibold uppercase tracking-widest text-accent"
-        >
-          About
-        </motion.p>
-        <motion.h2
-          variants={itemVariants}
-          className="mt-3 text-center text-3xl font-semibold text-dark md:text-4xl lg:text-5xl"
-        >
-          About Klero
-        </motion.h2>
+        <SectionHeading
+          eyebrow="About"
+          title={<>About <span className="text-accent">Klero</span></>}
+          align="left"
+        />
 
         <div className="mt-12 grid grid-cols-1 items-start gap-10 md:grid-cols-2 md:gap-16">
           {/* Photo placeholder */}

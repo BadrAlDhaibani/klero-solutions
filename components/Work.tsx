@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import SectionReveal, { itemVariants } from "@/components/SectionReveal";
+import SectionHeading from "@/components/SectionHeading";
 import BrowserMockup from "@/components/BrowserMockup";
 import { caseStudies } from "@/data/caseStudies";
 import { testimonials } from "@/data/testimonials";
@@ -25,24 +26,12 @@ export default function Work() {
         className="bg-white pt-12 pb-20 md:pt-16 md:pb-28 lg:pt-20 lg:pb-32"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <motion.p
-            variants={itemVariants}
-            className="text-center text-sm font-semibold uppercase tracking-widest text-accent"
-          >
-            Projects
-          </motion.p>
-          <motion.h2
-            variants={itemVariants}
-            className="mt-3 text-center text-3xl font-semibold text-dark md:text-4xl lg:text-5xl"
-          >
-            Our Work
-          </motion.h2>
-          <motion.p
-            variants={itemVariants}
-            className="mx-auto mt-4 max-w-2xl text-center text-lg leading-relaxed text-dark/70"
-          >
-            Real projects. Real results. Here&apos;s what we&apos;ve built.
-          </motion.p>
+          <SectionHeading
+            eyebrow="Projects"
+            title={<>Our <span className="text-accent">Work</span></>}
+            subtitle="Real projects. Real results. Here's what we've built."
+            align="left"
+          />
 
           <motion.div
             variants={cardContainerVariants}

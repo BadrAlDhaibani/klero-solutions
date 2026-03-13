@@ -13,9 +13,10 @@ interface MobileMenuProps {
   onClose: () => void;
   navLinks: NavLink[];
   ctaHref: string;
+  activeHash?: string;
 }
 
-export default function MobileMenu({ isOpen, onClose, navLinks, ctaHref }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, onClose, navLinks, ctaHref, activeHash }: MobileMenuProps) {
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
@@ -71,27 +72,37 @@ export default function MobileMenu({ isOpen, onClose, navLinks, ctaHref }: Mobil
             </button>
 
             {/* Nav links */}
-            <nav className="mt-8 flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={onClose}
-                  className="px-4 py-3 text-lg font-semibold text-dark transition-colors hover:bg-light-bg hover:text-primary"
-                >
-                  {link.label}
-                </a>
-              ))}
+            <nav className="my-auto flex flex-col justify-between py-8" style={{ minHeight: "45%" }}>
+              {navLinks.map((link) => {
+                const hash = link.href.replace(/^\/?#/, "");
+                const active = activeHash === hash;
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={onClose}
+                    className={`border-l-4 px-5 py-3.5 text-xl font-semibold transition-colors hover:text-primary ${
+                      active
+                        ? "border-accent text-primary"
+                        : "border-transparent text-dark"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </nav>
 
             {/* CTA */}
+            <div className="border-t border-border/30 pt-6 mb-4">
             <a
               href={ctaHref}
               onClick={onClose}
-              className="mt-auto bg-primary px-6 py-3 text-center text-lg font-semibold text-white transition-colors hover:bg-accent"
+              className="block bg-primary px-6 py-3.5 text-center text-lg font-semibold text-white shadow-none transition-all duration-300 hover:bg-accent hover:shadow-[0_4px_14px_rgba(99,102,241,0.5)]"
             >
               Let&apos;s Talk
             </a>
+            </div>
           </motion.div>
         </>
       )}

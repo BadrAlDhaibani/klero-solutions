@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionReveal, { itemVariants } from "@/components/SectionReveal";
+import SectionHeading from "@/components/SectionHeading";
 
 const SERVICE_OPTIONS = [
   "A new website",
@@ -65,25 +66,11 @@ export default function Contact() {
       className="bg-light-bg pt-12 pb-20 md:pt-16 md:pb-28 lg:pt-20 lg:pb-32"
     >
       <div className="mx-auto max-w-5xl px-6">
-        <motion.p
-          variants={itemVariants}
-          className="text-center text-sm font-semibold uppercase tracking-widest text-accent"
-        >
-          Contact
-        </motion.p>
-        <motion.h2
-          variants={itemVariants}
-          className="mt-3 text-center text-3xl font-semibold text-dark md:text-4xl lg:text-5xl"
-        >
-          Let&apos;s Talk
-        </motion.h2>
-        <motion.p
-          variants={itemVariants}
-          className="mx-auto mt-4 max-w-2xl text-center text-lg leading-relaxed text-dark/70"
-        >
-          Got a project in mind? Not sure what you need yet? Either way,
-          I&apos;d love to hear from you.
-        </motion.p>
+        <SectionHeading
+          eyebrow="Contact"
+          title={<>Let&apos;s <span className="text-accent">Talk</span></>}
+          subtitle="Got a project in mind? Not sure what you need yet? Either way, I'd love to hear from you."
+        />
 
         <motion.div
           variants={itemVariants}
@@ -114,7 +101,7 @@ export default function Contact() {
                   onSubmit={handleSubmit}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="space-y-6"
+                  className="space-y-8"
                 >
                   {/* Name */}
                   <div>
@@ -204,7 +191,7 @@ export default function Contact() {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full bg-primary px-6 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-accent hover:shadow-lg md:w-auto"
+                    className="w-full bg-primary px-10 py-3 text-base font-semibold text-white shadow-none transition-all duration-300 hover:bg-accent hover:shadow-[0_6px_20px_rgba(99,102,241,0.5)] md:w-auto"
                   >
                     Send Message
                   </button>
@@ -214,8 +201,8 @@ export default function Contact() {
           </div>
 
           {/* Info sidebar */}
-          <div className="space-y-8 md:col-span-2">
-            <div>
+          <div className="space-y-6 md:col-span-2">
+            <div className="border-l-2 border-accent pl-4">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-dark">
                 Prefer email?
               </h3>
@@ -227,7 +214,7 @@ export default function Contact() {
               </a>
             </div>
 
-            <div>
+            <div className="border-l-2 border-accent/40 pl-4">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-dark">
                 Response time
               </h3>
@@ -236,7 +223,7 @@ export default function Contact() {
               </p>
             </div>
 
-            <div>
+            <div className="border-l-2 border-accent/40 pl-4">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-dark">
                 What happens next?
               </h3>

@@ -44,7 +44,9 @@ export default function Navbar() {
   }, []);
 
   const isActive = (hash: string) => {
-    return isHomepage && activeSection === hash;
+    if (!isHomepage) return false;
+    if (hash === "process" && activeSection === "comparison") return true;
+    return activeSection === hash;
   };
 
   return (
@@ -52,7 +54,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/80 shadow-sm backdrop-blur-md"
+            ? "bg-white/70 backdrop-blur-[4px]"
             : "bg-transparent"
         }`}
       >
@@ -114,7 +116,7 @@ export default function Navbar() {
             })}
             <a
               href={ctaHref}
-              className="bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-accent hover:shadow-lg"
+              className="bg-primary px-6 py-2 text-sm font-semibold text-white shadow-none transition-all duration-300 hover:bg-accent hover:shadow-[0_4px_14px_rgba(99,102,241,0.5)]"
             >
               Let&apos;s Talk
             </a>
@@ -149,6 +151,7 @@ export default function Navbar() {
         onClose={() => setMenuOpen(false)}
         navLinks={navLinks}
         ctaHref={ctaHref}
+        activeHash={isHomepage ? (activeSection === "comparison" ? "process" : activeSection) : undefined}
       />
     </>
   );

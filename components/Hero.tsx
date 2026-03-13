@@ -64,15 +64,26 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div
-          className="mt-10 flex flex-col items-center gap-4"
+          className="mt-10 flex flex-col items-center gap-10"
           variants={itemVariants}
         >
           <MagneticButton href="#contact">Let&apos;s Talk</MagneticButton>
 
           <motion.a
             href="#projects"
-            className="mt-2 inline-flex items-center gap-1 text-base font-medium text-accent transition-colors hover:text-primary"
+            className="inline-flex items-center gap-1.5 text-base font-medium text-accent transition-colors hover:text-primary"
           >
+            <motion.span
+              className="inline-block"
+              animate={{ y: [0, 4, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut" as const,
+              }}
+            >
+              ↓
+            </motion.span>
             See our work
             <motion.span
               className="inline-block"

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionReveal, { itemVariants } from "@/components/SectionReveal";
+import SectionHeading from "@/components/SectionHeading";
 
 const rows = [
   {
@@ -80,19 +81,10 @@ export default function Comparison() {
       className="bg-light-bg pt-12 pb-20 md:pt-16 md:pb-28 lg:pt-20 lg:pb-32"
     >
       <div className="mx-auto max-w-5xl px-6">
-        <motion.h2
-          variants={itemVariants}
-          className="mt-3 text-center text-3xl font-semibold text-dark md:text-4xl lg:text-5xl"
-        >
-          Built, Not Templated
-        </motion.h2>
-        <motion.p
-          variants={itemVariants}
-          className="mx-auto mt-4 max-w-2xl text-center text-lg leading-relaxed text-dark/70"
-        >
-          Your business isn&apos;t generic. Your website shouldn&apos;t be
-          either.
-        </motion.p>
+        <SectionHeading
+          title={<><span className="text-accent">Built</span>, Not Templated</>}
+          subtitle="Your business isn't generic. Your website shouldn't be either."
+        />
 
         {/* Comparison table */}
         <motion.div variants={itemVariants} className="mt-12">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import SectionReveal, { itemVariants } from "@/components/SectionReveal";
+import SectionHeading from "@/components/SectionHeading";
 import AccordionItem from "@/components/AccordionItem";
 import { getServiceIcon } from "@/components/ServiceIcons";
 import { services } from "@/data/services";
@@ -29,25 +30,11 @@ export default function Services() {
       className="bg-light-bg pt-12 pb-20 md:pt-16 md:pb-28 lg:pt-20 lg:pb-32"
     >
       <div className="mx-auto max-w-4xl px-6">
-        <motion.p
-          variants={itemVariants}
-          className="text-center text-sm font-semibold uppercase tracking-widest text-accent"
-        >
-          Services
-        </motion.p>
-        <motion.h2
-          variants={itemVariants}
-          className="mt-3 text-center text-3xl font-semibold text-dark md:text-4xl lg:text-5xl"
-        >
-          What We Build
-        </motion.h2>
-        <motion.p
-          variants={itemVariants}
-          className="mx-auto mt-4 max-w-2xl text-center text-lg leading-relaxed text-dark/70"
-        >
-          Every project starts with the same question: what&apos;s costing you
-          customers right now?
-        </motion.p>
+        <SectionHeading
+          eyebrow="Services"
+          title={<>What We <span className="text-accent">Build</span></>}
+          subtitle="Every project starts with the same question: what's costing you customers right now?"
+        />
 
         <motion.div
           variants={accordionContainerVariants}
