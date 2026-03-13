@@ -70,7 +70,7 @@ export default function Hero() {
           <MagneticButton href="#contact">Let&apos;s Talk</MagneticButton>
 
           <motion.a
-            href="#work"
+            href="#projects"
             className="mt-2 inline-flex items-center gap-1 text-base font-medium text-accent transition-colors hover:text-primary"
           >
             See our work

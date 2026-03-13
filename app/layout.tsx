@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Albert_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,6 +11,11 @@ const albertSans = Albert_Sans({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://klerosolutions.com"),
   title: {
@@ -20,6 +25,10 @@ export const metadata: Metadata = {
   },
   description:
     "Klero Solutions builds custom websites, booking systems, and digital tools for small businesses in Halifax and the Maritimes. Built to rank on Google, not from a template.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title:
       "Klero Solutions | Custom Websites & Digital Tools for Small Businesses",

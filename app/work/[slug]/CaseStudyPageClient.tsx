@@ -39,7 +39,7 @@ export default function CaseStudyPageClient({
       <SubpageHero
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Work", href: "/#work" },
+          { label: "Projects", href: "/#projects" },
           { label: study.name },
         ]}
         label="Case Study"

@@ -21,7 +21,7 @@ export default function Work() {
     <>
       {/* Case Studies */}
       <SectionReveal
-        id="work"
+        id="projects"
         className="bg-white pt-12 pb-20 md:pt-16 md:pb-28 lg:pt-20 lg:pb-32"
       >
         <div className="mx-auto max-w-6xl px-6">
@@ -29,7 +29,7 @@ export default function Work() {
             variants={itemVariants}
             className="text-center text-sm font-semibold uppercase tracking-widest text-accent"
           >
-            Work
+            Projects
           </motion.p>
           <motion.h2
             variants={itemVariants}

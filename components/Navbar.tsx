@@ -9,13 +9,13 @@ import MobileMenu from "./MobileMenu";
 
 const BASE_NAV_LINKS = [
   { label: "Services", hash: "services" },
-  { label: "Work", hash: "work" },
+  { label: "Projects", hash: "projects" },
   { label: "Process", hash: "process" },
   { label: "About", hash: "about" },
   { label: "Contact", hash: "contact" },
 ];
 
-const SECTION_IDS = ["hero", "services", "work", "process", "comparison", "about", "contact"];
+const SECTION_IDS = ["hero", "services", "projects", "process", "comparison", "about", "contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
