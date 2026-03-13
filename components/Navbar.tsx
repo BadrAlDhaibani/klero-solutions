@@ -58,7 +58,16 @@ export default function Navbar() {
       >
         <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
           {/* Logo */}
-          <Link href="/" className="shrink-0">
+          <Link
+            href="/"
+            className="shrink-0"
+            onClick={(e) => {
+              if (isHomepage) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
             <Image
               src="/klero-lockup-primary.svg"
               alt="Klero Solutions"
