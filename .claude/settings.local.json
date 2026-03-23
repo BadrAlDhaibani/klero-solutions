@@ -20,7 +20,8 @@
       "Bash(for file:*)",
       "Bash(do head:*)",
       "Bash(/tmp/verify_refs.txt:*)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(npm i:*)"
     ]
   }
 }
