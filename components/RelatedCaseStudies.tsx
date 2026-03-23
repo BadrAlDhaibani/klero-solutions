@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import BrowserMockup from "@/components/BrowserMockup";
-import { getCaseStudyBySlug } from "@/data/caseStudies";
+import { getCaseStudyBySlug, type CaseStudy } from "@/data/caseStudies";
 
 interface RelatedCaseStudiesProps {
   slugs: string[];
@@ -30,7 +30,7 @@ const itemVariants = {
 export default function RelatedCaseStudies({ slugs }: RelatedCaseStudiesProps) {
   const studies = slugs
     .map((slug) => getCaseStudyBySlug(slug))
-    .filter(Boolean);
+    .filter((s): s is CaseStudy => Boolean(s));
 
   if (studies.length === 0) return null;
 
@@ -52,21 +52,23 @@ export default function RelatedCaseStudies({ slugs }: RelatedCaseStudiesProps) {
 
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           {studies.map((study) => (
-            <motion.div key={study!.slug} variants={itemVariants} className="flex">
+            <motion.div key={study.slug} variants={itemVariants} className="flex">
               <Link
-                href={`/work/${study!.slug}`}
+                href={`/work/${study.slug}`}
                 className="group flex flex-col border border-border bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]"
               >
                 <BrowserMockup
-                  companyName={study!.name}
-                  variant={study!.mockupVariant}
+                  companyName={study.name}
+                  variant={study.mockupVariant}
+                  screenshotSrc={study.screenshotSrc}
+                  websiteUrl={study.websiteUrl}
                 />
                 <div className="flex-1 p-6">
                   <h3 className="text-lg font-semibold text-dark">
-                    {study!.name}
+                    {study.name}
                   </h3>
                   <p className="mt-1 text-sm leading-relaxed text-dark/60">
-                    {study!.shortDescription}
+                    {study.shortDescription}
                   </p>
                 </div>
               </Link>

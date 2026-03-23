@@ -27,7 +27,7 @@ export const services: Service[] = [
       "Designed to turn visitors into leads and customers",
       "You own it outright, no monthly platform fees",
     ],
-    relatedCaseStudySlugs: ["fortedge-security", "abcare"],
+    relatedCaseStudySlugs: ["fortedge-security", "novatrade-atlantic"],
     seoTitle: "Custom Web Design for Small Businesses in Halifax",
     seoDescription:
       "Klero Solutions builds custom websites for small businesses in Halifax and the Maritimes. Fast, mobile-friendly, and built to rank on Google. No templates.",

@@ -14,7 +14,13 @@
       "Bash(curl -s http://localhost:3001 -o /dev/null -w \" %{http_code}\")",
       "Bash(curl -s http://localhost:3001)",
       "Bash(curl -s http://localhost:3001/_next/static/chunks/%5Broot-of-the-server%5D__4ad46485._.css)",
-      "Bash(taskkill //PID 20356 //F)"
+      "Bash(taskkill //PID 20356 //F)",
+      "Bash(mv \"/c/Users/badrd/OneDrive/Desktop/Klero Solutions/website/klero-solutions/public/screenshots/NovaTrade Atlantic.png\" \"/c/Users/badrd/OneDrive/Desktop/Klero Solutions/website/klero-solutions/public/screenshots/novatrade-atlantic.png\")",
+      "Bash(rm \"/c/Users/badrd/OneDrive/Desktop/Klero Solutions/website/klero-solutions/public/screenshots/novatrade-atlantic.jpg\")",
+      "Bash(for file:*)",
+      "Bash(do head:*)",
+      "Bash(/tmp/verify_refs.txt:*)",
+      "Read(//tmp/**)"
     ]
   }
 }

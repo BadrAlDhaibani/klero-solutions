@@ -53,6 +53,8 @@ export default function CaseStudyPageClient({
           <BrowserMockup
             companyName={study.name}
             variant={study.mockupVariant}
+            screenshotSrc={study.screenshotSrc}
+            websiteUrl={study.websiteUrl}
           />
           <div className="mt-4 flex flex-wrap gap-2">
             {study.tags.map((tag) => (

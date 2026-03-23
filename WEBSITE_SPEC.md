@@ -200,7 +200,7 @@ Secondary text link (below CTA):
 **Section sub-heading:**
 > Real projects. Real results. Here's what we've built.
 
-**Layout:** Featured case study card(s). For now, this section holds placeholder content for FortEdge Security and Abcare. Design it to accommodate 2–4 case studies over time.
+**Layout:** Featured case study card(s). For now, this section holds content for FortEdge Security and NovaTrade Atlantic. Design it to accommodate 2–4 case studies over time.
 
 **Case study card structure (each):**
 - Project thumbnail/screenshot (placeholder image for now — use a styled rectangle with the company name)
@@ -214,9 +214,9 @@ Secondary text link (below CTA):
 - Description: "A professional web presence for a Halifax-based security company — giving them credibility that matches the quality of their service."
 - Tags: Website, Design, Development
 
-**Abcare (Staffing Rebrand)**
-- Description: "A complete website overhaul for a company transitioning from home care to staffing — new brand, new site, new first impression."
-- Tags: Website, Rebrand, Development
+**NovaTrade Atlantic**
+- Description: "A premium corporate website for a Canadian international trading company, built to earn trust with global partners before the first handshake ever happens."
+- Tags: Website, Brand Identity, Development, SEO
 
 **Below the case studies — testimonial area:**
 
@@ -225,8 +225,8 @@ Placeholder testimonials (will be replaced with real ones):
 > "Working with Klero was seamless. Badr took the time to understand our business and delivered a site that our customers actually comment on."
 > — [Name], FortEdge Security
 
-> "We needed someone who could handle the rebrand and the website together. Badr delivered exactly what we needed, on time and without the runaround."
-> — [Name], Abcare
+> "Klero built us a site that makes us look like we have been in business for decades. International partners reach out already impressed before we say a word."
+> — [Name], NovaTrade Atlantic
 
 **Design notes:**
 - Case study cards should be large and visual — this section needs to feel substantial even with only 2 projects
@@ -408,12 +408,11 @@ Placeholder testimonials (will be replaced with real ones):
 
 ## Content to Be Replaced Later
 
-These items are placeholders and will be swapped in once the abcare project is completed:
+These items are placeholders and will be swapped in as real content becomes available:
 
-1. **Testimonials** — replace placeholder quotes with real testimonials from FortEdge manager and CEO
-2. **Case study screenshots** — replace placeholder rectangles with actual project screenshots
+1. **Testimonials** — replace placeholder quotes with real testimonials from clients
+2. **Case study screenshots** — FortEdge still uses a gradient placeholder; NovaTrade Atlantic screenshot is live
 3. **Badr's photo** — replace placeholder with real headshot
-4. **Case study detail pages** — once there are 3+ projects, consider adding individual case study pages linked from the Work section
 
 ---
 

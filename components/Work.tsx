@@ -51,6 +51,8 @@ export default function Work() {
                 <BrowserMockup
                   companyName={study.name}
                   variant={study.mockupVariant}
+                  screenshotSrc={study.screenshotSrc}
+                  websiteUrl={study.websiteUrl}
                 />
                 <div className="p-6 md:p-8">
                   <h3 className="text-xl font-semibold text-dark">

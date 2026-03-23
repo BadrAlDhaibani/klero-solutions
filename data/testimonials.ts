@@ -14,11 +14,11 @@ export const testimonials: Testimonial[] = [
     company: "FortEdge Security",
   },
   {
-    slug: "abcare",
+    slug: "novatrade-atlantic",
     quote:
-      "We needed someone who could handle the rebrand and the website together. Badr delivered exactly what we needed, on time and without the runaround.",
+      "Klero built us a site that makes us look like we have been in business for decades. International partners reach out already impressed before we say a word.",
     name: "[Name]",
-    company: "Abcare",
+    company: "NovaTrade Atlantic",
   },
 ];
 

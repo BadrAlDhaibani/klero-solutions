@@ -124,7 +124,7 @@ export default function Process() {
               </div>
 
               {/* Content */}
-              <div className={`relative pb-12 ${index === steps.length - 1 ? "pb-0" : ""}`}>
+              <div className={index === steps.length - 1 ? "relative" : "relative pb-12"}>
                 <span
                   aria-hidden="true"
                   className="pointer-events-none absolute -top-2 right-0 select-none text-8xl font-bold leading-none text-dark/5 md:text-9xl"

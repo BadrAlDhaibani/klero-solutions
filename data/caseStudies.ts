@@ -10,9 +10,31 @@ export interface CaseStudy {
   testimonialSlug: string;
   seoTitle: string;
   seoDescription: string;
+  screenshotSrc?: string;
+  websiteUrl?: string;
 }
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "novatrade-atlantic",
+    name: "NovaTrade Atlantic",
+    shortDescription:
+      "A premium corporate website for a Canadian international trading company, built to earn trust with global partners before the first handshake ever happens.",
+    tags: ["Website", "Brand Identity", "Development", "SEO"],
+    mockupVariant: "light",
+    challenge:
+      "NovaTrade Atlantic is a newly launched international trading company based in Nova Scotia, specializing in Canadian food exports and industrial equipment. When they came to us, they had no web presence at all. For a company trying to build partnerships with distributors and buyers across four continents, that is a serious problem. International B2B buyers research potential partners online before they ever pick up the phone. Without a professional site, NovaTrade was invisible and risked looking unestablished next to competitors who have been online for years.",
+    solution:
+      "We built a seven-page corporate website designed to project authority and credibility from the first click. The site is structured around NovaTrade's two divisions, food products and industrial equipment, each with rich, detailed content that signals real expertise to buyers and performs well in search. It loads fast on any connection worldwide, includes structured data for SEO from day one, and features a contact system with an 80+ country dropdown that tells international investors this company is ready to do business globally.",
+    results:
+      "NovaTrade Atlantic now has a digital presence that matches the scale of their ambitions. Instead of explaining who they are over email, they can point potential partners to a site that tells the full story, from Canadian sourcing standards to logistics capabilities across four continents. The design quality, content depth, and attention to detail give a new company something critical: it makes them look established, which is exactly what you need when asking someone overseas to trust you with their supply chain.",
+    testimonialSlug: "novatrade-atlantic",
+    seoTitle: "NovaTrade Atlantic Corporate Website",
+    seoDescription:
+      "How Klero Solutions built a premium corporate website for NovaTrade Atlantic, a Canadian international trading company, to earn trust with global partners.",
+    screenshotSrc: "/screenshots/novatrade-atlantic.png",
+    websiteUrl: "novatradeatlantic.com",
+  },
   {
     slug: "fortedge-security",
     name: "FortEdge Security",
@@ -30,24 +52,6 @@ export const caseStudies: CaseStudy[] = [
     seoTitle: "FortEdge Security Website",
     seoDescription:
       "How Klero Solutions built a professional website for FortEdge Security in Halifax, giving them a web presence that matches the quality of their service.",
-  },
-  {
-    slug: "abcare",
-    name: "Abcare (Staffing Rebrand)",
-    shortDescription:
-      "A complete website overhaul for a company transitioning from home care to staffing. New brand, new site, new first impression.",
-    tags: ["Website", "Rebrand", "Development"],
-    mockupVariant: "light",
-    challenge:
-      "Abcare was pivoting from home care services to a staffing agency, and their existing website no longer represented who they were or what they offered. They needed a complete rebrand and a new site that would attract both employers looking for staffing solutions and job seekers looking for work, all while establishing credibility in a new market.",
-    solution:
-      "We handled the rebrand and the website together, creating a cohesive identity that positions Abcare as a professional staffing partner. The new site clearly separates the experience for employers and job seekers, making it easy for both audiences to find what they need. The design is clean and approachable, reflecting the company's people-first values.",
-    results:
-      "Abcare launched their staffing business with a polished, professional web presence from day one. The site clearly communicates their new direction and has helped them establish credibility with both employers and candidates in the Halifax market.",
-    testimonialSlug: "abcare",
-    seoTitle: "Abcare Staffing Website Rebrand",
-    seoDescription:
-      "How Klero Solutions helped Abcare transition from home care to staffing with a complete website rebrand. New brand, new site, new first impression.",
   },
 ];
 

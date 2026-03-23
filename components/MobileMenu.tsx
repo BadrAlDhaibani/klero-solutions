@@ -72,7 +72,7 @@ export default function MobileMenu({ isOpen, onClose, navLinks, ctaHref, activeH
             </button>
 
             {/* Nav links */}
-            <nav className="my-auto flex flex-col justify-between py-8" style={{ minHeight: "45%" }}>
+            <nav aria-label="Main navigation" className="my-auto flex flex-col justify-between py-8" style={{ minHeight: "45%" }}>
               {navLinks.map((link) => {
                 const hash = link.href.replace(/^\/?#/, "");
                 const active = activeHash === hash;
