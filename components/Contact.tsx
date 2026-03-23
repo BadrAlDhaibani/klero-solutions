@@ -54,10 +54,37 @@ function ChevronDownIcon({ className }: { className?: string }) {
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const formData = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      service: (form.elements.namedItem("service") as HTMLSelectElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      company_url: (form.elements.namedItem("company_url") as HTMLInputElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try contact@klerosolutions.com directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -69,7 +96,7 @@ export default function Contact() {
         <SectionHeading
           eyebrow="Contact"
           title={<>Let&apos;s <span className="text-accent">Talk</span></>}
-          subtitle="Got a project in mind? Not sure what you need yet? Either way, I'd love to hear from you."
+          subtitle="Got a project in mind? Not sure what you need yet? Either way, we'd love to hear from you."
         />
 
         <motion.div
@@ -92,7 +119,7 @@ export default function Contact() {
                     Thanks!
                   </p>
                   <p className="mt-2 text-dark/70">
-                    I&apos;ll be in touch within 24 hours.
+                    We&apos;ll be in touch within 24 hours.
                   </p>
                 </motion.div>
               ) : (
@@ -103,6 +130,18 @@ export default function Contact() {
                   transition={{ duration: 0.2 }}
                   className="space-y-8"
                 >
+                  {/* Honeypot — invisible to humans, bots auto-fill it */}
+                  <div aria-hidden="true" className="absolute opacity-0 h-0 w-0 overflow-hidden">
+                    <label htmlFor="company_url">Website</label>
+                    <input
+                      type="text"
+                      id="company_url"
+                      name="company_url"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
                   {/* Name */}
                   <div>
                     <label
@@ -188,12 +227,18 @@ export default function Contact() {
                     />
                   </div>
 
+                  {/* Error */}
+                  {error && (
+                    <p className="text-sm text-red-600">{error}</p>
+                  )}
+
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full bg-primary px-10 py-3 text-base font-semibold text-white shadow-none transition-all duration-300 hover:bg-accent hover:shadow-[0_6px_20px_rgba(99,102,241,0.5)] md:w-auto"
+                    disabled={loading}
+                    className="w-full bg-primary px-10 py-3 text-base font-semibold text-white shadow-none transition-all duration-300 hover:bg-accent hover:shadow-[0_6px_20px_rgba(99,102,241,0.5)] disabled:opacity-60 disabled:cursor-not-allowed md:w-auto"
                   >
-                    Send Message
+                    {loading ? "Sending..." : "Send Message"}
                   </button>
                 </motion.form>
               )}
@@ -219,7 +264,7 @@ export default function Contact() {
                 Response time
               </h3>
               <p className="mt-2 leading-relaxed text-dark/70">
-                I respond to every inquiry within 24 hours.
+                We respond to every inquiry within 24 hours.
               </p>
             </div>
 
@@ -228,7 +273,7 @@ export default function Contact() {
                 What happens next?
               </h3>
               <p className="mt-2 leading-relaxed text-dark/70">
-                After you reach out, I&apos;ll review your message and get back
+                After you reach out, we&apos;ll review your message and get back
                 to you to schedule a free 15-minute discovery call. No
                 commitment, no pressure.
               </p>

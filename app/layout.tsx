@@ -21,20 +21,20 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://klerosolutions.com"),
   title: {
     default:
-      "Klero Solutions | Custom Websites & Digital Tools for Small Businesses | Halifax, NS",
+      "Klero Solutions | Custom Websites & Digital Tools for Businesses | Halifax, NS",
     template: "%s | Klero Solutions",
   },
   description:
-    "Klero Solutions builds custom websites, booking systems, and digital tools for small businesses in Halifax and the Maritimes. Built to rank on Google, not from a template.",
+    "Klero Solutions builds custom websites, booking systems, and digital tools for businesses in Halifax and the Maritimes. Built to rank on Google, not from a template.",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
     title:
-      "Klero Solutions | Custom Websites & Digital Tools for Small Businesses",
+      "Klero Solutions | Custom Websites & Digital Tools for Businesses",
     description:
-      "Klero Solutions builds custom websites, booking systems, and digital tools for small businesses in Halifax and the Maritimes.",
+      "Klero Solutions builds custom websites, booking systems, and digital tools for businesses in Halifax and the Maritimes.",
     locale: "en_CA",
     type: "website",
   },

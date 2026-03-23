@@ -7,18 +7,18 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    slug: "fortedge",
-    quote:
-      "Working with Klero was seamless. Badr took the time to understand our business and delivered a site that our customers actually comment on.",
-    name: "[Name]",
-    company: "FortEdge Security",
-  },
-  {
     slug: "novatrade-atlantic",
     quote:
       "Klero built us a site that makes us look like we have been in business for decades. International partners reach out already impressed before we say a word.",
-    name: "[Name]",
+    name: "Slava Svidler",
     company: "NovaTrade Atlantic",
+  },
+  {
+    slug: "fortedge",
+    quote:
+      "Working with Klero was seamless. They took the time to understand our business and delivered a site that our customers actually comment on.",
+    name: "Ankit Joshi",
+    company: "FortEdge Security",
   },
 ];
 

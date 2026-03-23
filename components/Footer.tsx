@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const FOOTER_LINKS = [
   { label: "Services", href: "/#services" },
@@ -22,7 +23,7 @@ export default function Footer() {
               className="h-8 w-auto"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed">
-              Custom websites and digital tools for small businesses.
+              Custom websites and digital tools for local businesses.
             </p>
           </div>
 
@@ -33,13 +34,13 @@ export default function Footer() {
             </h4>
             <nav className="mt-4 flex flex-col gap-2">
               {FOOTER_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   className="text-sm transition-colors hover:text-white"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>

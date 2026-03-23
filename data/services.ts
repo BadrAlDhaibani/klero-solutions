@@ -28,9 +28,9 @@ export const services: Service[] = [
       "You own it outright, no monthly platform fees",
     ],
     relatedCaseStudySlugs: ["fortedge-security", "novatrade-atlantic"],
-    seoTitle: "Custom Web Design for Small Businesses in Halifax",
+    seoTitle: "Custom Web Design for Businesses in Halifax",
     seoDescription:
-      "Klero Solutions builds custom websites for small businesses in Halifax and the Maritimes. Fast, mobile-friendly, and built to rank on Google. No templates.",
+      "Klero Solutions builds custom websites for businesses in Halifax and the Maritimes. Fast, mobile-friendly, and built to rank on Google. No templates.",
   },
   {
     slug: "booking-scheduling",
@@ -51,7 +51,7 @@ export const services: Service[] = [
     relatedCaseStudySlugs: [],
     seoTitle: "Online Booking Systems for Halifax Businesses",
     seoDescription:
-      "Custom booking and scheduling systems for small businesses in Halifax. Let customers book online, reduce no-shows with automatic reminders, and save time on admin.",
+      "Custom booking and scheduling systems for businesses in Halifax. Let customers book online, reduce no-shows with automatic reminders, and save time on admin.",
   },
   {
     slug: "internal-tools",
@@ -72,7 +72,7 @@ export const services: Service[] = [
     relatedCaseStudySlugs: [],
     seoTitle: "Custom Business Dashboards and Internal Tools",
     seoDescription:
-      "Custom internal tools and dashboards for small businesses. Replace spreadsheets and manual processes with purpose-built software that saves time and reduces errors.",
+      "Custom internal tools and dashboards for businesses. Replace spreadsheets and manual processes with purpose-built software that saves time and reduces errors.",
   },
   {
     slug: "ai-chat",
@@ -91,7 +91,7 @@ export const services: Service[] = [
       "Gets smarter over time as you refine its knowledge",
     ],
     relatedCaseStudySlugs: [],
-    seoTitle: "AI Chat Assistants for Small Business Websites",
+    seoTitle: "AI Chat Assistants for Business Websites",
     seoDescription:
       "AI-powered chat assistants for your website that know your business. Answer customer questions 24/7, capture leads, and never miss an inquiry. Built by Klero Solutions.",
   },
@@ -114,7 +114,7 @@ export const services: Service[] = [
     relatedCaseStudySlugs: ["fortedge-security"],
     seoTitle: "Website Maintenance and Support in Halifax",
     seoDescription:
-      "Ongoing website maintenance and support for small businesses in Halifax. Security updates, performance monitoring, SEO upkeep, and a developer who picks up the phone.",
+      "Ongoing website maintenance and support for businesses in Halifax. Security updates, performance monitoring, SEO upkeep, and a developer who picks up the phone.",
   },
 ];
 

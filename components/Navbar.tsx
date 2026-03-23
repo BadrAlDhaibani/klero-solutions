@@ -93,7 +93,7 @@ export default function Navbar() {
             {navLinks.map((link) => {
               const hash = link.href.replace(/^\/?#/, "");
               return (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className="group relative py-2 text-sm font-semibold text-dark transition-colors hover:text-primary"
@@ -111,15 +111,15 @@ export default function Navbar() {
                         : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
-                </a>
+                </Link>
               );
             })}
-            <a
+            <Link
               href={ctaHref}
               className="bg-primary px-6 py-2 text-sm font-semibold text-white shadow-none transition-all duration-300 hover:bg-accent hover:shadow-[0_4px_14px_rgba(99,102,241,0.5)]"
             >
               Let&apos;s Talk
-            </a>
+            </Link>
           </div>
 
           {/* Mobile hamburger */}

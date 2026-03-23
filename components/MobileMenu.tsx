@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NavLink {
@@ -77,7 +78,7 @@ export default function MobileMenu({ isOpen, onClose, navLinks, ctaHref, activeH
                 const hash = link.href.replace(/^\/?#/, "");
                 const active = activeHash === hash;
                 return (
-                  <a
+                  <Link
                     key={link.label}
                     href={link.href}
                     onClick={onClose}
@@ -88,20 +89,20 @@ export default function MobileMenu({ isOpen, onClose, navLinks, ctaHref, activeH
                     }`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
 
             {/* CTA */}
             <div className="border-t border-border/30 pt-6 mb-4">
-            <a
+            <Link
               href={ctaHref}
               onClick={onClose}
               className="block bg-primary px-6 py-3.5 text-center text-lg font-semibold text-white shadow-none transition-all duration-300 hover:bg-accent hover:shadow-[0_4px_14px_rgba(99,102,241,0.5)]"
             >
               Let&apos;s Talk
-            </a>
+            </Link>
             </div>
           </motion.div>
         </>
